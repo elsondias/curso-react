@@ -10,6 +10,14 @@ function ListRender() {
     { id: 4, name: "Piccolo", age: 140 },
   ]);
 
+  const deleteRandom = () => {
+    const randomNumber = Math.floor(Math.random() * 4) + 1;
+
+    setUsers((prevUsers) =>
+      prevUsers.filter((user) => randomNumber !== user.id)
+    );
+  };
+
   return (
     <div>
       {/* 4 - RENDERIZAÇÃO SEM KEY */}
@@ -26,6 +34,8 @@ function ListRender() {
           </li>
         ))}
       </ul>
+      {/* 6 - PREVIOUS STATE */}
+      <button onClick={deleteRandom}>Delete random user</button>
     </div>
   );
 }
